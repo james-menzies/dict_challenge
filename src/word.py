@@ -19,9 +19,8 @@ class Word:
 
         response = requests.get(f"https://www.dictionaryapi.com/api/v3/references/collegiate/json/{user_input}", params=params)
         word = json.loads(response.text)
-  
       
-        if word:
+        if word and isinstance(word[0], dict):
             word = Word(word[0]['meta']['stems'][0], word[0]['shortdef'][0])
             return word
         else:

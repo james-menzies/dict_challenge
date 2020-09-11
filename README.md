@@ -1,0 +1,1 @@
+https://www.dictionaryapi.com/api/v3/references/collegiate/json/fdfdsads?key=21a77102-2cf6-4ebe-b74c-226f540d898

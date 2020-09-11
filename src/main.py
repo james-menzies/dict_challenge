@@ -18,6 +18,7 @@ def word_lookup():
         print("Word not found!")
     input("Press ENTER to continue >> ")
 
+
 def view_favourites():
     if Data.favourites:
         for word in Data.favourites:
