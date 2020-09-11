@@ -3,12 +3,25 @@ import json
 import secrets
 class Word:
 
+<<<<<<< HEAD
     def read_and_convert_json(path):
         response = requests.get(f"https://www.dictionaryapi.com/api/v3/references/collegiate/json/{word}key={dictkey}")
 
         word = json.loads(response.text)
+=======
+    def __init__(self, word, definition, synonyms=[]):
+        self.word = word
+        self.definition = definition
+        self._synonyms = synonyms
 
-        print(word)
+
+    # def read_and_convert_json(path):
+    #     response = requests.get(f"https://www.dictionaryapi.com/api/v3/references/collegiate/json/{word}key={}")
+        
+    #     word = json.loads(response.text)
+>>>>>>> a81605d14b7511ab9e829652c8eb04ae88eb84a5
+
+    #     print(word)
 
 
     @staticmethod
@@ -31,7 +44,8 @@ class Word:
     
 
     def __str__(self):
-        return f"{self.name}: {self.definition}"
+        return f"{self.word}: {self.definition}"
     
-    def favourite(self):
-        #
+    def __repr__(self):
+        return f"{self.word}: {self.definition}"
+    

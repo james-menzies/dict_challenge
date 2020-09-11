@@ -6,25 +6,32 @@ from word import Word
 
 class Data:
 
-    data_location = Path.home().joinpath("DictionaryApp", "favourites.json")
-    print(data_location)
+    folder_location = Path.home().joinpath("DictionaryApp")
+    folder_location.mkdir(parents=True, exist_ok=True)
+    data_location = folder_location.joinpath("favourites.json")
 
     if data_location.is_file():
-        with open(data_location, "") as data_file:
+        with open(data_location, "r") as data_file:
             favourites = json.load(data_file)
+            favourites = [Word(word["word"], word["definition"], word["_synonyms"]) for word in favourites]
+
     else:
         favourites = []
     
+    print(favourites)
 
     @classmethod
     def save_favourites(cls):
-        with open(cls.data_location) as data_file:
-            raw_data = json.dumps(cls.favourites)
+        with open(cls.data_location, "w") as data_file:
+            
+            raw_data = [word.__dict__ for word in cls.favourites]
+            raw_data = json.dumps(raw_data)
             data_file.write(raw_data)
     
     @classmethod
     def add_favourite(cls, word):
         if isinstance(word, Word):
+
             cls.favourites.append(word)
             cls.save_favourites()
         else:
@@ -34,12 +41,17 @@ class Data:
     def remove_favourite(cls, word):
         if word in cls.favourites:
             cls.favourites.remove(word)
+            cls.save_favourites()
         else:
             print("Word is not in favourites.")
 
     
+word = Word("banana", "a delicious fruit")
 
-    
+Data.add_favourite(word)
+
+
+
 
 
 
