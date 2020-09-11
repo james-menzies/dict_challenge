@@ -5,7 +5,8 @@ class Word:
     @staticmethod
     def get_word_from_string(user_input):
         word = Word()
-        word.name = 
+        word.name = "Banana"
+        word.definition = "A delicious fruit"
 
         return word
 
@@ -17,3 +18,11 @@ class Word:
             # make API call
             # save response into self._synonyms
             # return self._synonyms
+            pass
+    
+
+    def __str__(self):
+        return f"{self.name}: {self.definition}"
+    
+    def favourite(self):
+        #
