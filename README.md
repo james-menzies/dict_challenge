@@ -42,9 +42,12 @@ If you're keen to check this out for yourself, you can do so by taking the follo
 4. Navigate to the root folder of the project in your terminal and run:
 ```
 pip3 install -r requirements.txt
+```  
+5. You will need to obtain your own API key from Merriam-Webster. Request a dictionary API key from [HERE](https://dictionaryapi.com/register/index). Upon doing so, create a new file called secrets.py in the src folder and add the following to it:
 ```
-
-5. Navigate to the src folder in the repository and run by executing: 
+dictkey = "{your_api_key}"
+```
+6. Navigate to the src folder in the repository and run by executing: 
 ```
 python3 main.py
-```  
+```
