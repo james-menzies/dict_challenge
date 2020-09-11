@@ -1,10 +1,11 @@
 import requests
 import json
+import secrets
 class Word:
 
     def read_and_convert_json(path):
-        response = requests.get(f"https://www.dictionaryapi.com/api/v3/references/collegiate/json/{word}key={}")
-        
+        response = requests.get(f"https://www.dictionaryapi.com/api/v3/references/collegiate/json/{word}key={dictkey}")
+
         word = json.loads(response.text)
 
         print(word)
