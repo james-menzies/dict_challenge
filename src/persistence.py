@@ -18,8 +18,6 @@ class Data:
     else:
         favourites = []
     
-    print(favourites)
-
     @classmethod
     def save_favourites(cls):
         with open(cls.data_location, "w") as data_file:

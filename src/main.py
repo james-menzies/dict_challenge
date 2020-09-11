@@ -28,11 +28,8 @@ def view_favourites():
     input("Press ENTER to go back.")
     
 
-
 options, items = display_utils.create_option_block()
 items["Look up a word"] = word_lookup
 items["See your favourite words"] = view_favourites
 
 display_utils.choice_loop(options)
-
-
