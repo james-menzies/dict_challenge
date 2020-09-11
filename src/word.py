@@ -2,12 +2,6 @@ import requests
 import json
 import secrets
 
-
-def retrieve_word_from_api(word):
-
-    
-
-
 class Word:
 
     def __init__(self, word, definition, synonyms=[]):
@@ -23,11 +17,16 @@ class Word:
         "key": secrets.dictkey
          }
 
-        response = requests.get(f"https://www.dictionaryapi.com/api/v3/references/collegiate/json/{word}", params=params)
+        response = requests.get(f"https://www.dictionaryapi.com/api/v3/references/collegiate/json/{user_input}", params=params)
         word = json.loads(response.text)
+  
+      
+        if word:
+            word = Word(word[0]['meta']['stems'][0], word[0]['shortdef'][0])
+            return word
+        else:
+            return None
 
-        word = Word(word[0]['meta']['stems'][0], word[0]['shortdef'][0])
-        return word
 
     @property
     def synonyms(self):
@@ -46,6 +45,3 @@ class Word:
     def __repr__(self):
         return f"{self.word}: {self.definition}"
     
-
-
-read_and_convert_json("volume")

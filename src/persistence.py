@@ -27,10 +27,12 @@ class Data:
             raw_data = [word.__dict__ for word in cls.favourites]
             raw_data = json.dumps(raw_data)
             data_file.write(raw_data)
+            print("Word successfully saved.")
     
     @classmethod
     def add_favourite(cls, word):
         if isinstance(word, Word):
+
 
             cls.favourites.append(word)
             cls.save_favourites()
@@ -44,12 +46,6 @@ class Data:
             cls.save_favourites()
         else:
             print("Word is not in favourites.")
-
-    
-word = Word("banana", "a delicious fruit")
-
-Data.add_favourite(word)
-
 
 
 
