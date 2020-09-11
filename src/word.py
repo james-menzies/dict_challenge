@@ -1,35 +1,32 @@
 import requests
 import json
 import secrets
+
+
+def retrieve_word_from_api(word):
+
+    
+
+
 class Word:
 
-<<<<<<< HEAD
-    def read_and_convert_json(path):
-        response = requests.get(f"https://www.dictionaryapi.com/api/v3/references/collegiate/json/{word}key={dictkey}")
-
-        word = json.loads(response.text)
-=======
     def __init__(self, word, definition, synonyms=[]):
         self.word = word
         self.definition = definition
         self._synonyms = synonyms
 
 
-    # def read_and_convert_json(path):
-    #     response = requests.get(f"https://www.dictionaryapi.com/api/v3/references/collegiate/json/{word}key={}")
-        
-    #     word = json.loads(response.text)
->>>>>>> a81605d14b7511ab9e829652c8eb04ae88eb84a5
-
-    #     print(word)
-
 
     @staticmethod
     def get_word_from_string(user_input):
-        word = Word()
-        word.name = "Banana"
-        word.definition = "A delicious fruit"
+        params = {
+        "key": secrets.dictkey
+         }
 
+        response = requests.get(f"https://www.dictionaryapi.com/api/v3/references/collegiate/json/{word}", params=params)
+        word = json.loads(response.text)
+
+        word = Word(word[0]['meta']['stems'][0], word[0]['shortdef'][0])
         return word
 
     @property
@@ -49,3 +46,6 @@ class Word:
     def __repr__(self):
         return f"{self.word}: {self.definition}"
     
+
+
+read_and_convert_json("volume")
