@@ -2,8 +2,6 @@ from pathlib import Path
 import json
 from word import Word
 
-
-
 class Data:
 
     folder_location = Path.home().joinpath("DictionaryApp")
@@ -13,7 +11,8 @@ class Data:
     if data_location.is_file():
         with open(data_location, "r") as data_file:
             favourites = json.load(data_file)
-            favourites = [Word(word["word"], word["definition"], word["_synonyms"]) for word in favourites]
+            favourites = [Word(word["word"], word["definition"], word["_synonyms"]) 
+            for word in favourites]
 
     else:
         favourites = []
@@ -30,7 +29,6 @@ class Data:
     @classmethod
     def add_favourite(cls, word):
         if isinstance(word, Word):
-
 
             cls.favourites.append(word)
             cls.save_favourites()
