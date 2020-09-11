@@ -1,6 +1,14 @@
 import requests
-
+import json
 class Word:
+
+    def read_and_convert_json(path):
+        response = requests.get(f"https://www.dictionaryapi.com/api/v3/references/collegiate/json/{word}key={}")
+        
+        word = json.loads(response.text)
+
+        print(word)
+
 
     @staticmethod
     def get_word_from_string(user_input):
