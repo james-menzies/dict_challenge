@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This was a coding challenge we did in Coder Academy's CCC course, where we had to create a small dictionary type app based on the lesson content that we had recently learned. For this project, I had the pleasure of working with @gabrielwongau. The programming features we were encouraged to use were:
+This was a coding challenge we did in Coder Academy's CCC course, where we had to create a small dictionary type app based on the lesson content that we had recently learned. For this project, I had the pleasure of working with [Gabriel Wong](https://github.com/GabrielWongAu). The programming features we were encouraged to use were:
 
 * OOP paradigms, particularly the use of classes
 * The classmethod and staticmethod decorators
