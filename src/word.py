@@ -2,12 +2,18 @@ import requests
 import json
 class Word:
 
-    def read_and_convert_json(path):
-        response = requests.get(f"https://www.dictionaryapi.com/api/v3/references/collegiate/json/{word}key={}")
-        
-        word = json.loads(response.text)
+    def __init__(self, word, definition, synonyms=[]):
+        self.word = word
+        self.definition = definition
+        self._synonyms = synonyms
 
-        print(word)
+
+    # def read_and_convert_json(path):
+    #     response = requests.get(f"https://www.dictionaryapi.com/api/v3/references/collegiate/json/{word}key={}")
+        
+    #     word = json.loads(response.text)
+
+    #     print(word)
 
 
     @staticmethod
@@ -30,7 +36,8 @@ class Word:
     
 
     def __str__(self):
-        return f"{self.name}: {self.definition}"
+        return f"{self.word}: {self.definition}"
     
-    def favourite(self):
-        #
+    def __repr__(self):
+        return f"{self.word}: {self.definition}"
+    
